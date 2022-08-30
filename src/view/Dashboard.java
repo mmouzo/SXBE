@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
-
 
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import controller.Controller;
@@ -27,10 +21,6 @@ import model.entity.Book;
 import model.entity.Lead;
 import model.entity.Student;
 
-/**
- *
- * @author Valar Morghulis
- */
 public class Dashboard extends javax.swing.JFrame {
 
     /**
@@ -866,83 +856,83 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookActionPerformed
-       CardLayout card = (CardLayout)mainPanel.getLayout();
-       card.show(mainPanel, "panelAddBook");
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "panelAddBook");
     }//GEN-LAST:event_btnAddBookActionPerformed
 
     private void comboBoxSearchByActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxSearchByActionPerformed
-        searchBy = (String)comboBoxSearchBy.getSelectedItem();        
+        searchBy = (String) comboBoxSearchBy.getSelectedItem();
     }//GEN-LAST:event_comboBoxSearchByActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        if(searchBy == null)
-        {
-            searchBy = "Title"; //search by title default
+        if (searchBy == null) {
+            searchBy = "Title";
         }
-        
+
         String txt = txtSearch.getText().trim();
-        if(txt.length() == 0)
-        {
-            JOptionPane.showMessageDialog(panelSearchBook, "Please fill in the details", "Error", JOptionPane.ERROR_MESSAGE);
+        if (txt.length() == 0) {
+            JOptionPane.showMessageDialog(panelSearchBook, "Debe encher os detalles", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-                
-        switch(searchBy)
-        {
-            case    "Title":    searchTable.setModel(dao.getByTitle(txt));
-                                break;
-                          
-            case "Category":    searchTable.setModel(dao.getByCategory(txt));
-                                break;
-             
-            case   "Author":    searchTable.setModel(dao.getByAuthor(txt));
-                                break;
-                          
-            case     "ISBN":    searchTable.setModel(dao.getByIsbn(txt));
-                                break;              
+
+        switch (searchBy) {
+            case "Title":
+                searchTable.setModel(dao.getByTitle(txt));
+                break;
+
+            case "Category":
+                searchTable.setModel(dao.getByCategory(txt));
+                break;
+
+            case "Author":
+                searchTable.setModel(dao.getByAuthor(txt));
+                break;
+
+            case "ISBN":
+                searchTable.setModel(dao.getByIsbn(txt));
+                break;
         }
-        
-        if(searchTable.getModel().getRowCount() == 0)
-        {
-            JOptionPane.showMessageDialog(panelSearchBook, "No record Found", "Nothing Found", JOptionPane.ERROR_MESSAGE);
+
+        if (searchTable.getModel().getRowCount() == 0) {
+            JOptionPane.showMessageDialog(panelSearchBook, "Non se atopou ningún rexistro", "Non se atopou nada", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void ComboBoxSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxSearchBookActionPerformed
-        searchBookBy = (String)ComboBoxSearchBook.getSelectedItem();
+        searchBookBy = (String) ComboBoxSearchBook.getSelectedItem();
     }//GEN-LAST:event_ComboBoxSearchBookActionPerformed
 
     private void btnSearchBookIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookIssueActionPerformed
-        if(searchBookBy == null)
-        {
-            searchBookBy = "Title"; //search by title default
+        if (searchBookBy == null) {
+            searchBookBy = "Title";
         }
-        
+
         String txt = txtSearchBook.getText().trim();
-        if(txt.length() == 0)
-        {
-            JOptionPane.showMessageDialog(panelSearchBook, "Please fill in the details", "Error", JOptionPane.ERROR_MESSAGE);
+        if (txt.length() == 0) {
+            JOptionPane.showMessageDialog(panelSearchBook, "Debe encher os detalles", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-                
-        switch(searchBookBy)
-        {
-            case    "Title":    bookTable.setModel(dao.getByTitle(txt));
-                                break;
-                          
-            case "Category":    bookTable.setModel(dao.getByCategory(txt));
-                                break;
-             
-            case   "Author":    bookTable.setModel(dao.getByAuthor(txt));
-                                break;
-                          
-            case     "ISBN":    bookTable.setModel(dao.getByIsbn(txt));
-                                break;              
+
+        switch (searchBookBy) {
+            case "Title":
+                bookTable.setModel(dao.getByTitle(txt));
+                break;
+
+            case "Category":
+                bookTable.setModel(dao.getByCategory(txt));
+                break;
+
+            case "Author":
+                bookTable.setModel(dao.getByAuthor(txt));
+                break;
+
+            case "ISBN":
+                bookTable.setModel(dao.getByIsbn(txt));
+                break;
         }
-        
-        if(bookTable.getModel().getRowCount() == 0)
-        {
-            JOptionPane.showMessageDialog(panelIssueBook, "No record Found", "Nothing Found", JOptionPane.ERROR_MESSAGE);
+
+        if (bookTable.getModel().getRowCount() == 0) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Non se atopou ningún rexistro", "Non se atopou nada", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSearchBookIssueActionPerformed
 
@@ -952,70 +942,63 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         int row = issuedBooksTable.getSelectedRow();
-        if(row == -1)
-        {
-            JOptionPane.showMessageDialog(panelIssuedBooks, "Nothing selected", "Error", JOptionPane.ERROR_MESSAGE);
+        if (row == -1) {
+            JOptionPane.showMessageDialog(panelIssuedBooks, "Non seleccionou nada", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        int id = Integer.parseInt((String)issuedBooksTable.getModel().getValueAt(row, 0));
-        String isbn = (String)issuedBooksTable.getModel().getValueAt(row, 6);
-        
-        if(dao.returnBook(id, isbn))
-        {
-            JOptionPane.showMessageDialog(panelIssuedBooks, "Success", "Successfull", JOptionPane.INFORMATION_MESSAGE);
+        int id = Integer.parseInt((String) issuedBooksTable.getModel().getValueAt(row, 0));
+        String isbn = (String) issuedBooksTable.getModel().getValueAt(row, 5);
+
+        if (dao.returnBook(id, isbn)) {
+            JOptionPane.showMessageDialog(panelIssuedBooks, "Éxito", "Operación exitosa", JOptionPane.INFORMATION_MESSAGE);
             row = -1;
-            issuedBooksTable.setModel(dao.listILeadBooks());   
+            issuedBooksTable.setModel(dao.listILeadBooks());
+        } else {
+            JOptionPane.showMessageDialog(panelIssuedBooks, "Produciuse algún erro", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        else
-        {
-            JOptionPane.showMessageDialog(panelIssuedBooks, "Some error occured", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
+
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookActionPerformed
-       CardLayout card = (CardLayout)mainPanel.getLayout();
-       card.show(mainPanel, "panelSearchBook");
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "panelSearchBook");
     }//GEN-LAST:event_btnSearchBookActionPerformed
 
     private void btnListBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListBooksActionPerformed
-       CardLayout card = (CardLayout)mainPanel.getLayout();
-       card.show(mainPanel, "panelListBooks");
-       
-       bookAuthorTable.setModel(dao.getTableBookAuthor());
-       if(bookAuthorTable.getModel().getRowCount() == 0)
-        {
-            JOptionPane.showMessageDialog(panelListBooks, "No record Found", "Nothing Found", JOptionPane.ERROR_MESSAGE);
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "panelListBooks");
+
+        bookAuthorTable.setModel(dao.getTableBookAuthor());
+        if (bookAuthorTable.getModel().getRowCount() == 0) {
+            JOptionPane.showMessageDialog(panelListBooks, "Non se atopou ningún rexistro", "Non se atopou nada", JOptionPane.ERROR_MESSAGE);
         }
-       
+
     }//GEN-LAST:event_btnListBooksActionPerformed
 
     private void btnIeadBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIeadBookActionPerformed
-        CardLayout card = (CardLayout)mainPanel.getLayout();
-       card.show(mainPanel, "panelIssueBook");
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "panelIssueBook");
     }//GEN-LAST:event_btnIeadBookActionPerformed
 
     private void btnListLeadsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListLeadsActionPerformed
-       CardLayout card = (CardLayout)mainPanel.getLayout();
-       card.show(mainPanel, "panelIssuedBooks");
-       issuedBooksTable.setModel(dao.listILeadBooks());
-       if(issuedBooksTable.getModel().getRowCount() == 0)
-       {
-            JOptionPane.showMessageDialog(panelIssueBook, "No record Found", "No record", JOptionPane.ERROR_MESSAGE);
-       }
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "panelIssuedBooks");
+        issuedBooksTable.setModel(dao.listILeadBooks());
+        if (issuedBooksTable.getModel().getRowCount() == 0) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Non se atopou ningún rexistro", "Non se atopou nada", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnListLeadsActionPerformed
 
     private void btnReturnTodayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnTodayActionPerformed
-       CardLayout card = (CardLayout)mainPanel.getLayout();
-       card.show(mainPanel, "panelReturnToday");
-       
-       Calendar cal = Calendar.getInstance();
-       Date curDate = cal.getTime();
-       returnTodayTable.setModel(dao.getBookToReturn(curDate));
-       if(returnTodayTable.getModel().getRowCount() == 0)
-       {
-           JOptionPane.showMessageDialog(panelReturnToday, "No book to return Today", "Message", JOptionPane.INFORMATION_MESSAGE);
-       }
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "panelReturnToday");
+
+        Calendar cal = Calendar.getInstance();
+        Date curDate = cal.getTime();
+        returnTodayTable.setModel(dao.getBookToReturn(curDate));
+        if (returnTodayTable.getModel().getRowCount() == 0) {
+            JOptionPane.showMessageDialog(panelReturnToday, "Non hai libro para devolver hoxe", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnReturnTodayActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -1024,66 +1007,52 @@ public class Dashboard extends javax.swing.JFrame {
         String category = txtCategory.getText().trim();
         String q = txtQuantity.getText().trim();
         String name = txtAuthorName.getText().trim();
-              
-        if(isbn.equals("") || title.equals("") || category.equals("") || name.equals("") || q.equals(""))
-        {
-            JOptionPane.showMessageDialog(panelAddBook, "Fields can't be empty.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        if (isbn.equals("") || title.equals("") || category.equals("") || name.equals("") || q.equals("")) {
+            JOptionPane.showMessageDialog(panelAddBook, "Os campos non poden estar baleiros.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
         int numBooks;
-        try{
+        try {
             numBooks = Integer.parseInt(q);
-            if(numBooks <= 0)
-            {
+            if (numBooks <= 0) {
                 throw new Exception();
             }
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(panelAddBook, "Please enter valid quantity", "Invalid Quantity", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(panelAddBook, "Introduza unha cantidade válida", "Cantidade non válida", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        
-        
-        if( dao.addBook(new Book(isbn, title, category, numBooks)) && dao.addAuthor(new Author(name, isbn)) )
-        {
-            JOptionPane.showMessageDialog(panelAddBook, "Book details added successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        if (dao.addBook(new Book(isbn, title, category, numBooks)) && dao.addAuthor(new Author(name, isbn))) {
+            JOptionPane.showMessageDialog(panelAddBook, "Os detalles do libro engadidos correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             txtISBN.setText("");
             txtTitle.setText("");
             txtCategory.setText("");
             txtQuantity.setText("");
             txtAuthorName.setText("");
-              }
-        else
-        {
-            JOptionPane.showMessageDialog(panelAddBook, "Invalid Credentials", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(panelAddBook, "Credenciais non válidas", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnSearchBookIssue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookIssue1ActionPerformed
         String cie = txtUsnSearch.getText().trim();
-         
-        if(cie.length() != 0)
-        {
+
+        if (cie.length() != 0) {
             studentTable.setModel(dao.getStudentbyCie(cie));
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(panelIssueBook, "Please enter name or usn", "Invalid Credentials", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(panelIssueBook, "Introduza o nome ou CIE", "Credenciais non válidas", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if(studentTable.getModel().getRowCount() == 0)
-        {
-            JOptionPane.showMessageDialog(panelIssueBook, "No record Found", "Nothing Found", JOptionPane.ERROR_MESSAGE);
+        if (studentTable.getModel().getRowCount() == 0) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Non se atopou ningún rexistro", "Non se atopou nada", JOptionPane.ERROR_MESSAGE);
             AddStudent dialog = new AddStudent(this, true);
             dialog.setLocationRelativeTo(btnAddStudent);
             dialog.setVisible(true);
             txtUsnSearch.setText(dialog.cie);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_btnSearchBookIssue1ActionPerformed
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
@@ -1096,50 +1065,43 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIssueActionPerformed
         int idxBook = bookTable.getSelectedRow();
         int idxStudent = studentTable.getSelectedRow();
-	if(idxBook == -1 || idxStudent == -1)
-	{
-            JOptionPane.showMessageDialog(panelIssueBook, "Please select book and student from the table", "Invalid Operation", JOptionPane.ERROR_MESSAGE);
-            return;
-	}
-        String cie = (String)studentTable.getModel().getValueAt(idxStudent, 0);
-        String name = (String)studentTable.getModel().getValueAt(idxStudent, 1);
-        String isbn = (String)bookTable.getModel().getValueAt(idxBook, 0);
-        int count = Integer.parseInt((String)bookTable.getModel().getValueAt(idxBook, 3));
-        
-        if(count == 0)
-        {
-            JOptionPane.showMessageDialog(panelIssueBook, "Book not available", "Unavailable", JOptionPane.ERROR_MESSAGE);
+        if (idxBook == -1 || idxStudent == -1) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Seleccione libro e alumno da táboa", "Operación non válida", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+        String cie = (String) studentTable.getModel().getValueAt(idxStudent, 0);
+        String name = (String) studentTable.getModel().getValueAt(idxStudent, 1);
+        String isbn = (String) bookTable.getModel().getValueAt(idxBook, 0);
+        int count = Integer.parseInt((String) bookTable.getModel().getValueAt(idxBook, 3));
+
+        if (count == 0) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Libro non dispoñible", "Non dispoñible", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         Calendar cal = Calendar.getInstance();
-	Date curDate = cal.getTime();
+        Date curDate = cal.getTime();
         Date lead_date = curDate;
-	cal.add(Calendar.DATE, 7); //add 7 days to current date
-	Date return_date = cal.getTime();
-        if( (dao.studentExist(new Student(cie, name)) || dao.addStudent(new Student(cie, name))) && dao.leadBook(new Lead(cie, lead_date, return_date, isbn)) )
-	{
-            JOptionPane.showMessageDialog(panelIssueBook, "Book Issued Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        cal.add(Calendar.DATE, 7); //add 7 days to current date
+        Date return_date = cal.getTime();
+        if ((dao.studentExist(new Student(cie, name)) || dao.addStudent(new Student(cie, name))) && dao.leadBook(new Lead(cie, lead_date, return_date, isbn))) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Libro prestado", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             idxBook = -1;
             bookTable.setModel(new DefaultTableModel());
-	}
-        else
-        {
-            JOptionPane.showMessageDialog(panelIssueBook, "Some error occured.", "Invalid Operation", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(panelIssueBook, "Produciuse algún erro.", "Operación non válida", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnIssueActionPerformed
 
     private void btnSearchByUsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByUsnActionPerformed
         String cie = txtUsn.getText().trim();
-        if(cie.length() == 0)
-        {
-            JOptionPane.showMessageDialog(panelIssueBook, "Please enter usn", "Invalid USN", JOptionPane.ERROR_MESSAGE);
+        if (cie.length() == 0) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Por favor, insire o CIE", "CIE non válido", JOptionPane.ERROR_MESSAGE);
             return;
         }
         issuedBooksTable.setModel(dao.listBookByCie(cie));
-        if(issuedBooksTable.getModel().getRowCount() == 0)
-        {
-            JOptionPane.showMessageDialog(panelIssueBook, "No record Found", "No record", JOptionPane.ERROR_MESSAGE);
+        if (issuedBooksTable.getModel().getRowCount() == 0) {
+            JOptionPane.showMessageDialog(panelIssueBook, "Non se atopou ningún rexistro", "Non hai rexistro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSearchByUsnActionPerformed
 
@@ -1149,26 +1111,24 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void comboBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCategoryActionPerformed
-        String val = (String)comboBoxCategory.getSelectedItem();
-        if(!val.equals("Select"))
-        {
+        String val = (String) comboBoxCategory.getSelectedItem();
+        if (!val.equals("Select")) {
             txtCategory.setText(val);
         }
 
     }//GEN-LAST:event_comboBoxCategoryActionPerformed
 
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-       loadOnButton();
+        loadOnButton();
     }//GEN-LAST:event_btnHelpActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) throws UnsupportedLookAndFeelException {
-  
-        
-       try{
-             UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
+
+        try {
+            UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
             UIManager.put("Button.arc", 999);
             UIManager.put("Component.arc", 999);
             UIManager.put("ProgressBar.arc", 999);
@@ -1179,37 +1139,32 @@ public class Dashboard extends javax.swing.JFrame {
             UIManager.put("TableHeader.font", new java.awt.Font("Raleway", 0, 14));
             UIManager.put("ToolTip.font", new java.awt.Font("Raleway", 1, 14));
             UIManager.put("Button.font", new java.awt.Font("Raleway", 0, 14));
-            UIManager.put("Label.font", new java.awt.Font("Raleway", 0, 14));          
+            UIManager.put("Label.font", new java.awt.Font("Raleway", 0, 14));
             UIManager.put("ComboBox.buttonArrowColor", new java.awt.Color(245, 121, 0));
             UIManager.put("ComboBox.buttonSeparatorWidth", 2);
-       }catch(javax.swing.UnsupportedLookAndFeelException ex){
-           java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-       }
-        
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                if(!Login.loggedIn)
-                {
-                    Login login =  new Login();
+                if (!Login.loggedIn) {
+                    Login login = new Login();
                     login.pack();
                     login.setLocationRelativeTo(null);
                     login.setVisible(true);
                     return;
                 }
-        
+
                 new Dashboard().setVisible(true);
             }
         });
-        
-        
-        
-        
     }
-    
-     private void load() {
+
+    private void load() {
         try {
 
-            File file = new File("src/main/java/javaHelp/help.hs");
+            File file = new File("src/javaHelp/help.hs");
             URL hsURL = file.toURI().toURL();
 
             HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
@@ -1225,7 +1180,7 @@ public class Dashboard extends javax.swing.JFrame {
      */
     private void loadOnButton() {
         try {
-            File file = new File("src/main/java/javaHelp/help.hs");
+            File file = new File("src/javaHelp/help.hs");
             URL hsURL = file.toURI().toURL();
             HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
             HelpBroker hb = helpset.createHelpBroker();
@@ -1235,7 +1190,7 @@ public class Dashboard extends javax.swing.JFrame {
         } catch (MalformedURLException | HelpSetException e) {
         }
     }
-    
+
     Controller dao = new Controller();
     String searchBy = null, searchBookBy = null;
     //int numBooks = 0;

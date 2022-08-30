@@ -301,7 +301,7 @@ public class Controller {
     }
 
     public boolean leadBook(Lead lb) {
-        String sql = "insert into lead(lead_id, cie, lead_date, return_date, book_isbn) values(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO `lead` (cie,lead_date,return_date,book_isbn) VALUES (?,?,?,?)";
         String sqlCount = "update book set book_stock = book_stock - 1 where book_isbn = ?";
         int rows = 0;
         int rowsCount = 0;
@@ -314,11 +314,10 @@ public class Controller {
             rowsCount = psCount.executeUpdate();
 
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, lb.getId());
-            ps.setString(2, lb.getCie());
-            ps.setDate(3, idate);
-            ps.setDate(4, rdate);
-            ps.setString(5, lb.getBook_isbn());
+            ps.setString(1, lb.getCie());
+            ps.setDate(2, idate);
+            ps.setDate(3, rdate);
+            ps.setString(4, lb.getBook_isbn());
             rows = ps.executeUpdate();
         } catch (SQLException e) {
         }
@@ -436,7 +435,7 @@ public class Controller {
     }
 
     public boolean returnBook(int id, String isbn) {
-        String sql = "Delete from lead where lead_id = ? ";
+        String sql = "Delete from `lead` where lead_id = ? ";
 
         String sqlCount = "update book set book_stock = book_stock+1 where book_isbn = ? ";
 

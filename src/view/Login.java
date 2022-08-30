@@ -128,17 +128,20 @@ public class Login extends javax.swing.JFrame {
         String id = txtAdminId.getText().trim();
         String password = String.valueOf(txtPassword.getPassword()).trim();
         if (id.length() == 0 || password.length() == 0) {
-            JOptionPane.showMessageDialog(panelLogin, "Please enter Email and password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panelLogin, "Introduza o correo electrónico e o contrasinal", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
         AdminDAO dao = new AdminDAO();
         if (dao.isValidAdmin(new Admin(id, password))) {
             loggedIn = true;
-            System.out.println("Logged in successfully");
-            new Dashboard().setVisible(true);
+            System.out.println("Inicia sesión con éxito");
+            Dashboard dashboard = new Dashboard();
+            dashboard.pack();
+            dashboard.setLocationRelativeTo(null);
+            dashboard.setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(panelLogin, "Invalid Login!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panelLogin, "Inicio de sesión non válido!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

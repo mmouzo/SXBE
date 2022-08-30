@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
@@ -12,15 +7,8 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import model.entity.Student;
 
-/**
- *
- * @author Valar Morghulis
- */
 public class AddStudent extends javax.swing.JDialog {
 
-    /**
-     * Creates new form dialogAddStudent
-     */
     public AddStudent(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -117,18 +105,18 @@ public class AddStudent extends javax.swing.JDialog {
         String name = txtNAME.getText().trim();
 
         if (name.length() == 0 || cie.length() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "Please enter Name and USN", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Introduza o nome e o CIE", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         Controller dao = new Controller();
 
         if (dao.studentExist(new Student(cie, name))) {
-            JOptionPane.showMessageDialog(rootPane, "Student already Exist", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "O estudante xa existe", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         } else {
             dao.addStudent(new Student(cie, name));
-            JOptionPane.showMessageDialog(rootPane, "Student Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Alumnado engadido correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         }
     }//GEN-LAST:event_btnAddStudentActionPerformed
