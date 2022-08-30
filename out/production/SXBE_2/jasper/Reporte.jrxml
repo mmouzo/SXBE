@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e8130f6d-0b1f-47eb-bc09-437609f7b428">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="Ym9va2RiLmxlYWQgLDE1LDE1LGU2ZmM4NWE0LTAzZGQtNGM5My05ZTc0LTU3OGY5ZDM1ZjEzODs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM bookdb.lead]]>
+	</queryString>
+	<field name="lead_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="lead_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="lead_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lead"/>
+	</field>
+	<field name="cie" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cie"/>
+		<property name="com.jaspersoft.studio.field.label" value="cie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lead"/>
+	</field>
+	<field name="lead_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="lead_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="lead_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lead"/>
+	</field>
+	<field name="return_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="return_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="return_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lead"/>
+	</field>
+	<field name="book_isbn" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="book_isbn"/>
+		<property name="com.jaspersoft.studio.field.label" value="book_isbn"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lead"/>
+	</field>
+	<group name="lead_id">
+		<groupExpression><![CDATA[$F{lead_id}]]></groupExpression>
+	</group>
+	<group name="cie">
+		<groupExpression><![CDATA[$F{cie}]]></groupExpression>
+	</group>
+	<group name="lead_date">
+		<groupExpression><![CDATA[$F{lead_date}]]></groupExpression>
+	</group>
+	<group name="return_date">
+		<groupExpression><![CDATA[$F{return_date}]]></groupExpression>
+	</group>
+	<group name="book_isbn">
+		<groupExpression><![CDATA[$F{book_isbn}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="79" uuid="9c20e25a-7d21-48cb-8c1e-e0a01f25b17a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Raleway" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE PRÉSTAMOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="540" y="14" width="50" height="50" uuid="4e38cf82-2c30-4415-a224-cd429c7472f5"/>
+				<imageExpression><![CDATA["/src/icons/biblioteca-digital.png"]]></imageExpression>
+			</image>
+			<textField pattern="M/d/yy">
+				<reportElement x="700" y="0" width="100" height="30" uuid="19506764-4942-4147-bd1a-1e49d4d17477"/>
+				<textElement>
+					<font fontName="Raleway Light" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="39" width="100" height="30" uuid="4216521d-3a5c-4f66-87bb-f0d9d16b08c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Raleway" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Préstamo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="40" width="100" height="30" uuid="4ceef668-d384-43f8-be2f-389198a5ed64"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Raleway" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="39" width="130" height="31" uuid="9ba09fb2-a70a-437f-9f46-a66bdcb7f050"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Raleway" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Préstamo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="41" width="150" height="30" uuid="3e3f6dab-641b-4b8d-b6ec-4de4bbe167ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Raleway" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Devolución]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="40" width="100" height="30" uuid="06f7b536-3d69-49bf-9efa-604e096c0eb5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Raleway" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ISBN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="-1" width="100" height="30" uuid="ec067468-6776-46e9-96f4-1b25b803632f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lilex" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lead_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="100" height="30" uuid="c606ca60-3052-4aff-90c5-1e470857fc5c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lilex" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="130" height="30" uuid="121bedf9-1be3-4396-9fa3-c11c672bcb94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lilex" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lead_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="150" height="30" uuid="6ebc5876-79f6-46ed-bd97-c7429176668b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lilex" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{return_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="660" y="0" width="100" height="30" uuid="a2a6b31e-55e0-47b8-924a-fea45b4081f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lilex" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{book_isbn}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="74" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="351" y="44" width="100" height="30" uuid="3b872ad4-e3e9-437a-aa18-fa68ee8c63fc"/>
+				<textElement textAlignment="Left">
+					<font fontName="Raleway" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="64" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -3,11 +3,16 @@ package view;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import controller.Controller;
 import java.awt.CardLayout;
+import java.sql.Connection;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.help.HelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
@@ -20,6 +25,15 @@ import model.entity.Author;
 import model.entity.Book;
 import model.entity.Lead;
 import model.entity.Student;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -82,6 +96,7 @@ public class Dashboard extends javax.swing.JFrame {
         txtUsn = new javax.swing.JTextField();
         btnSearchByUsn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panelReturnToday = new javax.swing.JPanel();
         scrollPaneReturnToday = new javax.swing.JScrollPane();
         returnTodayTable = new javax.swing.JTable();
@@ -575,6 +590,14 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("DEVOLUCIÓNS");
 
+        jButton1.setFont(new java.awt.Font("Raleway", 1, 14)); // NOI18N
+        jButton1.setText("Reporte");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelIssuedBooksLayout = new javax.swing.GroupLayout(panelIssuedBooks);
         panelIssuedBooks.setLayout(panelIssuedBooksLayout);
         panelIssuedBooksLayout.setHorizontalGroup(
@@ -593,7 +616,9 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addComponent(btnSearchByUsn))))
                     .addGroup(panelIssuedBooksLayout.createSequentialGroup()
                         .addGap(397, 397, 397)
-                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelIssuedBooksLayout.createSequentialGroup()
                         .addGap(388, 388, 388)
                         .addComponent(jLabel5)))
@@ -612,7 +637,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(scrollPaneIssuedBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelIssuedBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
 
@@ -940,25 +967,6 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsnSearchActionPerformed
 
-    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        int row = issuedBooksTable.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(panelIssuedBooks, "Non seleccionou nada", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        int id = Integer.parseInt((String) issuedBooksTable.getModel().getValueAt(row, 0));
-        String isbn = (String) issuedBooksTable.getModel().getValueAt(row, 5);
-
-        if (dao.returnBook(id, isbn)) {
-            JOptionPane.showMessageDialog(panelIssuedBooks, "Éxito", "Operación exitosa", JOptionPane.INFORMATION_MESSAGE);
-            row = -1;
-            issuedBooksTable.setModel(dao.listILeadBooks());
-        } else {
-            JOptionPane.showMessageDialog(panelIssuedBooks, "Produciuse algún erro", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_btnReturnActionPerformed
-
     private void btnSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookActionPerformed
         CardLayout card = (CardLayout) mainPanel.getLayout();
         card.show(mainPanel, "panelSearchBook");
@@ -1122,6 +1130,49 @@ public class Dashboard extends javax.swing.JFrame {
         loadOnButton();
     }//GEN-LAST:event_btnHelpActionPerformed
 
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        int row = issuedBooksTable.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(panelIssuedBooks, "Non seleccionou nada", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int id = Integer.parseInt((String) issuedBooksTable.getModel().getValueAt(row, 0));
+        String isbn = (String) issuedBooksTable.getModel().getValueAt(row, 5);
+
+        if (dao.returnBook(id, isbn)) {
+            JOptionPane.showMessageDialog(panelIssuedBooks, "Éxito", "Operación exitosa", JOptionPane.INFORMATION_MESSAGE);
+            row = -1;
+            issuedBooksTable.setModel(dao.listILeadBooks());
+        } else {
+            JOptionPane.showMessageDialog(panelIssuedBooks, "Produciuse algún erro", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "abc123");
+
+            String sql = "SELECT * FROM bookdb.lead";
+
+            JasperDesign jasperDesign = JRXmlLoader.load("src/jasper/Reporte.jrxml");
+
+            JRDesignQuery designQuery = new JRDesignQuery();
+
+            designQuery.setText(sql);
+
+            jasperDesign.setQuery(designQuery);
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1222,6 +1273,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxSearchBy;
     private javax.swing.JLabel isbnLabel;
     private javax.swing.JTable issuedBooksTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
