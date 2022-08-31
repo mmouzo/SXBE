@@ -1,6 +1,12 @@
 package controller;
 
+import model.entity.Author;
+import model.entity.Book;
+import model.entity.Lead;
+import model.entity.Student;
 import utils.ConnectionManager;
+
+import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,15 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import model.entity.Author;
-import model.entity.Book;
-import model.entity.Lead;
-import model.entity.Student;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 
 public class Controller {
 
@@ -24,7 +24,7 @@ public class Controller {
         String sql = "insert into book(book_isbn, book_title, category, book_stock) values(?, ?, ?, ?)";
         int rows = 0;
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, book.getIsbn());
             ps.setString(2, book.getTitle());
@@ -43,7 +43,7 @@ public class Controller {
         String sql = "insert into author(author_name, book_isbn) values(?, ?)";
         int rows = 0;
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, author.getName());
             ps.setString(2, author.getBook_isbn());
@@ -60,7 +60,7 @@ public class Controller {
         String sql = "insert into student(cie, name) values(?, ?)";
         int rows = 0;
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, stud.getCie());
             ps.setString(2, stud.getName());
@@ -77,7 +77,7 @@ public class Controller {
         String sql = "select cie, name from student where cie = ?";
         boolean exist = false;
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, stud.getCie());
             ResultSet rs = ps.executeQuery();
@@ -99,7 +99,7 @@ public class Controller {
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, cie.toLowerCase());
 
@@ -125,7 +125,7 @@ public class Controller {
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, name.toLowerCase());
 
@@ -146,15 +146,15 @@ public class Controller {
     public DefaultTableModel getByTitle(String title) {
         String sql = "select b.book_isbn, b.book_title, b.category, b.book_stock, a.author_name from book b, author a where a.book_isbn = b.book_isbn and LOWER(b.book_title) like ? ";
         Vector<String> colNames = new Vector<>();
-        colNames.add("Book ISBN");
-        colNames.add("Book Title");
-        colNames.add("Category");
-        colNames.add("Quantity");
-        colNames.add("Author");
+        colNames.add("ISBN");
+        colNames.add("Título");
+        colNames.add("Categoría");
+        colNames.add("Cantidade");
+        colNames.add("Autor");
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + title.toLowerCase() + "%");
 
@@ -178,15 +178,15 @@ public class Controller {
     public DefaultTableModel getByCategory(String category) {
         String sql = "select b.book_isbn, b.book_title, b.category, b.book_stock, a.author_name from book b, author a where a.book_isbn = b.book_isbn and LOWER(b.category) like ?";
         Vector<String> colNames = new Vector<>();
-        colNames.add("Book ISBN");
-        colNames.add("Book Title");
-        colNames.add("Category");
-        colNames.add("Quantity");
-        colNames.add("Author");
+        colNames.add("ISBN");
+        colNames.add("Título");
+        colNames.add("Categoría");
+        colNames.add("Cantidade");
+        colNames.add("Autor");
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + category.toLowerCase() + "%");
             ResultSet rs = ps.executeQuery();
@@ -211,15 +211,15 @@ public class Controller {
         String sql = "select b.book_isbn, b.book_title, b.category, b.book_stock, a.author_name from book b, author a where b.book_isbn = a.book_isbn and LOWER(a.author_name) like ?";
         Book b = null;
         Vector<String> colNames = new Vector<>();
-        colNames.add("Book ISBN");
-        colNames.add("Book Title");
-        colNames.add("Category");
-        colNames.add("Quantity");
-        colNames.add("Author");
+        colNames.add("ISBN");
+        colNames.add("Título");
+        colNames.add("Categoría");
+        colNames.add("Cantidade");
+        colNames.add("Autor");
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + name.toLowerCase() + "%");
             ResultSet rs = ps.executeQuery();
@@ -242,15 +242,15 @@ public class Controller {
     public DefaultTableModel getByIsbn(String isbn) {
         String sql = "select b.book_isbn, b.book_title, b.category, b.book_stock, a.author_name from book b, author a where a.book_isbn = b.book_isbn and LOWER(b.book_isbn) = ?";
         Vector<String> colNames = new Vector<>();
-        colNames.add("Book ISBN");
-        colNames.add("Book Title");
-        colNames.add("Category");
-        colNames.add("Quantity");
-        colNames.add("Author");
+        colNames.add("ISBN");
+        colNames.add("Título");
+        colNames.add("Categoría");
+        colNames.add("Cantidade");
+        colNames.add("Autor");
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, isbn.toLowerCase());
             ResultSet rs = ps.executeQuery();
@@ -273,15 +273,15 @@ public class Controller {
     public DefaultTableModel getTableBookAuthor() {
         String sql = "select b.book_isbn, b.book_title, b.category, b.book_stock, a.author_name from book b, author a where a.book_isbn = b.book_isbn";
         Vector<String> colNames = new Vector<>();
-        colNames.add("Book ISBN");
-        colNames.add("Book Title");
-        colNames.add("Category");
-        colNames.add("Quantity");
-        colNames.add("Author");
+        colNames.add("ISBN");
+        colNames.add("Título");
+        colNames.add("Categoría");
+        colNames.add("Cantidade");
+        colNames.add("Autor");
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -308,7 +308,7 @@ public class Controller {
         java.sql.Date idate = new java.sql.Date(lb.getLead_date().getTime());
         java.sql.Date rdate = new java.sql.Date(lb.getReturn_date().getTime());
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement psCount = conn.prepareStatement(sqlCount);
             psCount.setString(1, lb.getBook_isbn());
             rowsCount = psCount.executeUpdate();
@@ -329,16 +329,16 @@ public class Controller {
         String sql = "select bi.lead_id, b.book_title, bi.cie, s.name, bi.lead_date, bi.return_date, bi.book_isbn  from book b, student s, lead bi where b.book_isbn = bi.book_isbn and bi.cie = s.cie and LOWER(bi.cie) = ?";
         Vector<String> colNames = new Vector<>();
         colNames.add("ID");
-        colNames.add("Book Title");
-        colNames.add("USN");
-        colNames.add("Student Name");
-        colNames.add("Issue Date");
-        colNames.add("Return Date");
+        colNames.add("Título");
+        colNames.add("CIE");
+        colNames.add("Nome estudante");
+        colNames.add("Data préstamo");
+        colNames.add("Data devolución");
         colNames.add("ISBN");
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, cie);
             ResultSet rs = ps.executeQuery();
@@ -374,7 +374,7 @@ public class Controller {
 
         Vector<Vector<String>> data = new Vector<>();
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -400,17 +400,17 @@ public class Controller {
         String sql = "select l.lead_id ,b.book_title ,l.cie ,s.name ,l.lead_date ,l.return_date ,l.book_isbn  from book b , student s , `lead` l where b.book_isbn = l.book_isbn and l.cie = s.cie and l.return_date = ?";
         Vector<String> colNames = new Vector<>();
         colNames.add("ID");
-        colNames.add("Book Title");
-        colNames.add("USN");
-        colNames.add("Student Name");
-        colNames.add("Issue Date");
-        colNames.add("Return Date");
+        colNames.add("Título");
+        colNames.add("CIE");
+        colNames.add("Nome Estudante");
+        colNames.add("Data préstamo");
+        colNames.add("Data devolución");
         colNames.add("ISBN");
 
         Vector<Vector<String>> data = new Vector<>();
         java.sql.Date cdate = new java.sql.Date(curDate.getTime());
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setDate(1, cdate);
             ResultSet rs = ps.executeQuery();
@@ -442,7 +442,7 @@ public class Controller {
         int rows = 0;
         int rowsCount = 0;
 
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             rows = ps.executeUpdate();
@@ -461,7 +461,7 @@ public class Controller {
         String sql = "Select unique(category) from book";
         List<String> list = new ArrayList<>();
         list.add("Select");
-        try ( Connection conn = ConnectionManager.getConnection()) {
+        try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 

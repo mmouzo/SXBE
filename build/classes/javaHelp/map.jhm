@@ -4,5 +4,5 @@
         "http://java.sun.com/products/javahelp/map_2_0.dtd">
 <map version="1.0">
     <mapID target="manual" url="html/manual.html"/>
-    <mapID target="uso" url="html/uso.html"/>
+    <mapID target="funcionalidades" url="html/funcionalidades.html"/>
 </map>

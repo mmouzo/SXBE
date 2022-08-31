@@ -321,11 +321,11 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
-                        <Column editable="false" title="Book ISBN" type="java.lang.Object"/>
-                        <Column editable="false" title="Book Title" type="java.lang.Object"/>
-                        <Column editable="false" title="Category" type="java.lang.Object"/>
-                        <Column editable="false" title="Quantity" type="java.lang.Object"/>
-                        <Column editable="false" title="Author" type="java.lang.Object"/>
+                        <Column editable="false" title="ISBN" type="java.lang.Object"/>
+                        <Column editable="false" title="T&#xed;tulo" type="java.lang.Object"/>
+                        <Column editable="false" title="Categor&#xed;a" type="java.lang.Object"/>
+                        <Column editable="false" title="Cantidade" type="java.lang.Object"/>
+                        <Column editable="false" title="Autor" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -447,10 +447,10 @@
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="ISBN" type="java.lang.Object"/>
-                        <Column editable="false" title="Title" type="java.lang.Object"/>
-                        <Column editable="false" title="Category" type="java.lang.Object"/>
-                        <Column editable="false" title="Quantity" type="java.lang.Object"/>
-                        <Column editable="false" title="Author Name" type="java.lang.Object"/>
+                        <Column editable="false" title="T&#xed;tulo" type="java.lang.Object"/>
+                        <Column editable="false" title="Categor&#xed;a" type="java.lang.Object"/>
+                        <Column editable="false" title="Cantidade" type="java.lang.Object"/>
+                        <Column editable="false" title="Autor" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="autoResizeMode" type="int" value="4"/>
@@ -509,6 +509,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panelIssueBook">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Dashboard_panelLeadBook"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="panelIssueBook"/>
@@ -534,7 +537,7 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="ComboBoxSearchBook" min="-2" pref="104" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btnSearchBookIssue" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnSearchBookLead" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -553,16 +556,16 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblCIS" min="-2" pref="36" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtUsnSearch" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="txtCIESearch" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnSearchBookIssue1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSearchCIE" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
-                      <Component id="btnIssue" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="btnPrestar" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -576,7 +579,7 @@
                           <Component id="searchBookLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="txtSearchBook" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ComboBoxSearchBook" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="btnSearchBookIssue" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="btnSearchBookLead" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="bookScrollPane" min="-2" pref="196" max="-2" attributes="0"/>
@@ -584,8 +587,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="searchStudentLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="lblCIS" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="txtUsnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnSearchBookIssue1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="txtCIESearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSearchCIE" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -598,7 +601,7 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnIssue" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnPrestar" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -633,7 +636,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSearchBookIssue">
+            <Component class="javax.swing.JButton" name="btnSearchBookLead">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -641,7 +644,7 @@
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchBookIssueActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchBookLeadActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="bookScrollPane">
@@ -658,11 +661,11 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
-                        <Column editable="false" title="Book ISBN" type="java.lang.Object"/>
-                        <Column editable="false" title="Book Title" type="java.lang.Object"/>
-                        <Column editable="false" title="Category" type="java.lang.Object"/>
-                        <Column editable="false" title="Quantity" type="java.lang.Object"/>
-                        <Column editable="false" title="Author" type="java.lang.Object"/>
+                        <Column editable="false" title="ISBN" type="java.lang.Object"/>
+                        <Column editable="false" title="T&#xed;tulo" type="java.lang.Object"/>
+                        <Column editable="false" title="Categor&#xed;a" type="java.lang.Object"/>
+                        <Column editable="false" title="Cantidade" type="java.lang.Object"/>
+                        <Column editable="false" title="Autor" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -717,14 +720,14 @@
                 <Property name="text" type="java.lang.String" value="Buscar Estudante :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUsnSearch">
+            <Component class="javax.swing.JTextField" name="txtCIESearch">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUsnSearchActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCIESearchActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCIS">
@@ -750,8 +753,8 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="2" rowCount="0">
-                        <Column editable="false" title="USN" type="java.lang.Object"/>
-                        <Column editable="false" title="Name" type="java.lang.Object"/>
+                        <Column editable="false" title="CIE" type="java.lang.Object"/>
+                        <Column editable="false" title="Nome" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -775,7 +778,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnIssue">
+            <Component class="javax.swing.JButton" name="btnPrestar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Raleway" size="14" style="1"/>
@@ -784,10 +787,10 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIssueActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrestarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSearchBookIssue1">
+            <Component class="javax.swing.JButton" name="btnSearchCIE">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -795,7 +798,7 @@
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchBookIssue1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchCIEActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAddStudent">
@@ -840,22 +843,22 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="scrollPaneIssuedBooks" min="-2" pref="783" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="labelcCie" min="-2" pref="30" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtUsn" min="-2" pref="99" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnSearchByUsn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="397" max="-2" attributes="0"/>
                               <Component id="btnReturn" min="-2" pref="99" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="99" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="388" max="-2" attributes="0"/>
@@ -876,15 +879,13 @@
                           <Component id="labelcCie" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="txtUsn" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="btnSearchByUsn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="scrollPaneIssuedBooks" min="-2" pref="365" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnReturn" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="146" max="32767" attributes="0"/>
+                      <Component id="btnReturn" min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace pref="134" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -906,13 +907,13 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="7" rowCount="0">
-                        <Column editable="false" title="Issue ID" type="java.lang.Object"/>
-                        <Column editable="false" title="Book Title" type="java.lang.Object"/>
-                        <Column editable="false" title="USN" type="java.lang.Object"/>
-                        <Column editable="false" title="Student Name" type="java.lang.Object"/>
-                        <Column editable="false" title="Issue Date" type="java.lang.Object"/>
-                        <Column editable="false" title="Return Date" type="java.lang.Object"/>
-                        <Column editable="false" title="Book ISBN" type="java.lang.Object"/>
+                        <Column editable="false" title="ID" type="java.lang.Object"/>
+                        <Column editable="false" title="T&#xed;tulo" type="java.lang.Object"/>
+                        <Column editable="false" title="CIE" type="java.lang.Object"/>
+                        <Column editable="false" title="Nome estudante" type="java.lang.Object"/>
+                        <Column editable="false" title="Data pr&#xe9;stamo" type="java.lang.Object"/>
+                        <Column editable="false" title="Data devoluci&#xf3;n" type="java.lang.Object"/>
+                        <Column editable="false" title="ISBN" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1009,7 +1010,7 @@
                   <Color blue="32" green="95" red="eb" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="DEVOLUCI&#xd3;NS"/>
+                <Property name="text" type="java.lang.String" value="PR&#xc9;STAMOS"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
@@ -1017,7 +1018,12 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Raleway" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Reporte"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/icons8-print-32.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Imprimir Reporte"/>
+                <Property name="horizontalTextPosition" type="int" value="10"/>
+                <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

@@ -3,12 +3,12 @@
 <helpset version="1.0">
     <title>Manual de uso</title>
     <maps>
-        <!-- Pagina por defecto al mostrar la ayuda -->
+
         <homeID>manual</homeID>
-        <!-- Que mapa deseamos -->
+
         <mapref location="map.jhm"/>
     </maps>
-    <!-- Las Vistas que deseamos mostrar en la ayuda -->
+
     <view>
         <name>Tabla Contidos</name>
         <label>Tabla de contidos</label>

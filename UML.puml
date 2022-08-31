@@ -1,0 +1,209 @@
+@startuml
+class model.entity.Lead {
++ String cie
++ Date lead_date
++ Date return_date
++ String book_isbn
+- int id
++ int getId()
++ String getCie()
++ void setCie(String)
++ Date getLead_date()
++ void setLead_date(Date)
++ Date getReturn_date()
++ void setReturn_date(Date)
++ String getBook_isbn()
++ void setBook_isbn(String)
++ String toString()
+}
+class model.entity.Admin {
+~ String id
+~ String password
++ String getId()
++ String getPassword()
+}
+class view.AddStudent {
++ {static} String cie
+- javax.swing.JButton btnAddStudent
+- javax.swing.JLabel labelCIE
+- javax.swing.JLabel labelName
+- javax.swing.JTextField txtNAME
+- javax.swing.JTextField txtUSN
+- void initComponents()
+- void txtUSNActionPerformed(java.awt.event.ActionEvent)
+- void btnAddStudentActionPerformed(java.awt.event.ActionEvent)
++ {static} void main(String[])
+}
+class view.Login {
++ {static} boolean loggedIn
+- javax.swing.JLabel LabelAdmin
+- javax.swing.JLabel LabelPass
+- javax.swing.JButton btnLogin
+- javax.swing.JLabel jLabel1
+- javax.swing.JPanel panelLogin
+- javax.swing.JTextField txtAdminId
+- javax.swing.JPasswordField txtPassword
+- void initComponents()
+- void txtAdminIdActionPerformed(java.awt.event.ActionEvent)
+- void btnLoginActionPerformed(java.awt.event.ActionEvent)
++ {static} void main(String[])
+}
+class utils.ConnectionDB {
++ {static} void main(String[])
+}
+class model.entity.Author {
++ String book_isbn
+- String name
++ String getName()
++ void setName(String)
++ String getBook_isbn()
++ void setBook_isbn(String)
++ String toString()
+}
+class model.entity.Student {
++ String cie
++ String name
++ String getCie()
++ void setCie(String)
++ String getName()
++ void setName(String)
++ String toString()
+}
+class view.Dashboard {
+~ Controller dao
+~ String searchBy
+- javax.swing.JComboBox<String> ComboBoxSearchBook
+- javax.swing.JLabel authorLabel
+- javax.swing.JTable bookAuthorTable
+- javax.swing.JScrollPane bookScrollPane
+- javax.swing.JTable bookTable
+- javax.swing.JButton btnAdd
+- javax.swing.JButton btnAddBook
+- javax.swing.JButton btnAddStudent
+- javax.swing.JButton btnHelp
+- javax.swing.JButton btnIeadBook
+- javax.swing.JButton btnListBooks
+- javax.swing.JButton btnListLeads
+- javax.swing.JButton btnLogout
+- javax.swing.JButton btnPrestar
+- javax.swing.JButton btnReturn
+- javax.swing.JButton btnReturnToday
+- javax.swing.JButton btnSearch
+- javax.swing.JButton btnSearchBook
+- javax.swing.JButton btnSearchBookLead
+- javax.swing.JButton btnSearchByUsn
+- javax.swing.JButton btnSearchCIE
+- javax.swing.JLabel categoryLabel
+- javax.swing.JComboBox<String> comboBoxCategory
+- javax.swing.JComboBox<String> comboBoxSearchBy
+- javax.swing.JLabel isbnLabel
+- javax.swing.JTable issuedBooksTable
+- javax.swing.JButton jButton1
+- javax.swing.JLabel jLabel1
+- javax.swing.JLabel jLabel2
+- javax.swing.JLabel jLabel3
+- javax.swing.JLabel jLabel4
+- javax.swing.JLabel jLabel5
+- javax.swing.JLabel jLabel6
+- javax.swing.JLabel labelcCie
+- javax.swing.JLabel lblCIS
+- javax.swing.JPanel mainPanel
+- javax.swing.JPanel panelAddBook
+- javax.swing.JPanel panelIssueBook
+- javax.swing.JPanel panelIssuedBooks
+- javax.swing.JPanel panelListBooks
+- javax.swing.JPanel panelReturnToday
+- javax.swing.JPanel panelSearchBook
+- javax.swing.JLabel quantityLabel
+- javax.swing.JTable returnTodayTable
+- javax.swing.JScrollPane scrollPaneBookAuthor
+- javax.swing.JScrollPane scrollPaneIssuedBooks
+- javax.swing.JScrollPane scrollPaneReturnToday
+- javax.swing.JLabel searchBookLabel
+- javax.swing.JScrollPane searchScrollPane
+- javax.swing.JLabel searchStudentLabel
+- javax.swing.JTable searchTable
+- javax.swing.JScrollPane studentScrollPane
+- javax.swing.JTable studentTable
+- javax.swing.JLabel titleLabel
+- javax.swing.JTextField txtAuthorName
+- javax.swing.JTextField txtCIESearch
+- javax.swing.JTextField txtCategory
+- javax.swing.JTextField txtISBN
+- javax.swing.JTextField txtQuantity
+- javax.swing.JTextField txtSearch
+- javax.swing.JTextField txtSearchBook
+- javax.swing.JTextField txtTitle
+- javax.swing.JTextField txtUsn
+- void initComponents()
+- void btnAddBookActionPerformed(java.awt.event.ActionEvent)
+- void comboBoxSearchByActionPerformed(java.awt.event.ActionEvent)
+- void btnSearchActionPerformed(java.awt.event.ActionEvent)
+- void ComboBoxSearchBookActionPerformed(java.awt.event.ActionEvent)
+- void btnSearchBookLeadActionPerformed(java.awt.event.ActionEvent)
+- void txtCIESearchActionPerformed(java.awt.event.ActionEvent)
+- void btnSearchBookActionPerformed(java.awt.event.ActionEvent)
+- void btnListBooksActionPerformed(java.awt.event.ActionEvent)
+- void btnIeadBookActionPerformed(java.awt.event.ActionEvent)
+- void btnListLeadsActionPerformed(java.awt.event.ActionEvent)
+- void btnReturnTodayActionPerformed(java.awt.event.ActionEvent)
+- void btnAddActionPerformed(java.awt.event.ActionEvent)
+- void btnSearchCIEActionPerformed(java.awt.event.ActionEvent)
+- void btnAddStudentActionPerformed(java.awt.event.ActionEvent)
+- void btnPrestarActionPerformed(java.awt.event.ActionEvent)
+- void btnSearchByUsnActionPerformed(java.awt.event.ActionEvent)
+- void btnLogoutActionPerformed(java.awt.event.ActionEvent)
+- void comboBoxCategoryActionPerformed(java.awt.event.ActionEvent)
+- void btnHelpActionPerformed(java.awt.event.ActionEvent)
+- void btnReturnActionPerformed(java.awt.event.ActionEvent)
+- void jButton1ActionPerformed(java.awt.event.ActionEvent)
++ {static} void main(String[])
+- void load()
+- void loadOnButton()
+}
+class model.dao.AdminDAO {
++ boolean isValidAdmin(Admin)
+}
+class controller.Controller {
++ boolean addBook(Book)
++ boolean addAuthor(Author)
++ boolean addStudent(Student)
++ boolean studentExist(Student)
++ DefaultTableModel getStudentbyCie(String)
++ DefaultTableModel getStudentbyName(String)
++ DefaultTableModel getByTitle(String)
++ DefaultTableModel getByCategory(String)
++ DefaultTableModel getByAuthor(String)
++ DefaultTableModel getByIsbn(String)
++ DefaultTableModel getTableBookAuthor()
++ boolean leadBook(Lead)
++ DefaultTableModel listBookByCie(String)
++ DefaultTableModel listILeadBooks()
++ DefaultTableModel getBookToReturn(Date)
++ boolean returnBook(int,String)
++ String[] getAllCategory()
+}
+class model.entity.Book {
+- String isbn
+- String title
+- String category
+- int quantity
++ String getIsbn()
++ void setIsbn(String)
++ String getTitle()
++ void setTitle(String)
++ String getCategory()
++ void setCategory(String)
++ int getQuantity()
++ void setQuantity(int)
++ String toString()
+}
+class utils.ConnectionManager {
++ {static} Connection getConnection()
+}
+
+
+view.JDialog <|-- view.AddStudent
+view.JFrame <|-- view.Login
+view.JFrame <|-- view.Dashboard
+@enduml

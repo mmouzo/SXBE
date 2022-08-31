@@ -75,17 +75,17 @@ public class Dashboard extends javax.swing.JFrame {
         panelIssueBook = new javax.swing.JPanel();
         txtSearchBook = new javax.swing.JTextField();
         ComboBoxSearchBook = new javax.swing.JComboBox<>();
-        btnSearchBookIssue = new javax.swing.JButton();
+        btnSearchBookLead = new javax.swing.JButton();
         bookScrollPane = new javax.swing.JScrollPane();
         bookTable = new javax.swing.JTable();
         searchBookLabel = new javax.swing.JLabel();
         searchStudentLabel = new javax.swing.JLabel();
-        txtUsnSearch = new javax.swing.JTextField();
+        txtCIESearch = new javax.swing.JTextField();
         lblCIS = new javax.swing.JLabel();
         studentScrollPane = new javax.swing.JScrollPane();
         studentTable = new javax.swing.JTable();
-        btnIssue = new javax.swing.JButton();
-        btnSearchBookIssue1 = new javax.swing.JButton();
+        btnPrestar = new javax.swing.JButton();
+        btnSearchCIE = new javax.swing.JButton();
         btnAddStudent = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         panelIssuedBooks = new javax.swing.JPanel();
@@ -213,7 +213,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Book ISBN", "Book Title", "Category", "Quantity", "Author"
+                "ISBN", "Título", "Categoría", "Cantidade", "Autor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -290,7 +290,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ISBN", "Title", "Category", "Quantity", "Author Name"
+                "ISBN", "Título", "Categoría", "Cantidade", "Autor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -363,11 +363,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        btnSearchBookIssue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSearchBookIssue.setText("Buscar");
-        btnSearchBookIssue.addActionListener(new java.awt.event.ActionListener() {
+        btnSearchBookLead.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSearchBookLead.setText("Buscar");
+        btnSearchBookLead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchBookIssueActionPerformed(evt);
+                btnSearchBookLeadActionPerformed(evt);
             }
         });
 
@@ -377,7 +377,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Book ISBN", "Book Title", "Category", "Quantity", "Author"
+                "ISBN", "Título", "Categoría", "Cantidade", "Autor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -401,10 +401,10 @@ public class Dashboard extends javax.swing.JFrame {
         searchStudentLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         searchStudentLabel.setText("Buscar Estudante :");
 
-        txtUsnSearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtUsnSearch.addActionListener(new java.awt.event.ActionListener() {
+        txtCIESearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCIESearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsnSearchActionPerformed(evt);
+                txtCIESearchActionPerformed(evt);
             }
         });
 
@@ -418,7 +418,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "USN", "Name"
+                "CIE", "Nome"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -431,20 +431,20 @@ public class Dashboard extends javax.swing.JFrame {
         });
         studentScrollPane.setViewportView(studentTable);
 
-        btnIssue.setFont(new java.awt.Font("Raleway", 1, 14)); // NOI18N
-        btnIssue.setText("Prestar");
-        btnIssue.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnIssue.addActionListener(new java.awt.event.ActionListener() {
+        btnPrestar.setFont(new java.awt.Font("Raleway", 1, 14)); // NOI18N
+        btnPrestar.setText("Prestar");
+        btnPrestar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPrestar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIssueActionPerformed(evt);
+                btnPrestarActionPerformed(evt);
             }
         });
 
-        btnSearchBookIssue1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSearchBookIssue1.setText("Buscar");
-        btnSearchBookIssue1.addActionListener(new java.awt.event.ActionListener() {
+        btnSearchCIE.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSearchCIE.setText("Buscar");
+        btnSearchCIE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchBookIssue1ActionPerformed(evt);
+                btnSearchCIEActionPerformed(evt);
             }
         });
 
@@ -482,7 +482,7 @@ public class Dashboard extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ComboBoxSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnSearchBookIssue)))
+                                        .addComponent(btnSearchBookLead)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(64, 64, 64))
                     .addGroup(panelIssueBookLayout.createSequentialGroup()
@@ -495,13 +495,13 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblCIS, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUsnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCIESearch, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearchBookIssue1)
+                        .addComponent(btnSearchCIE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(panelIssueBookLayout.createSequentialGroup()
                 .addGap(232, 232, 232)
-                .addComponent(btnIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelIssueBookLayout.setVerticalGroup(
@@ -513,15 +513,15 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(searchBookLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchBookIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearchBookLead, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bookScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(panelIssueBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchStudentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCIS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchBookIssue1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCIESearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchCIE, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(panelIssueBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelIssueBookLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -530,7 +530,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(102, 102, 102)
                         .addComponent(btnAddStudent)))
                 .addGap(18, 18, 18)
-                .addComponent(btnIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
         );
 
@@ -544,7 +544,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Issue ID", "Book Title", "USN", "Student Name", "Issue Date", "Return Date", "Book ISBN"
+                "ID", "Título", "CIE", "Nome estudante", "Data préstamo", "Data devolución", "ISBN"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -588,10 +588,13 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Raleway", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(235, 149, 50));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("DEVOLUCIÓNS");
+        jLabel5.setText("PRÉSTAMOS");
 
         jButton1.setFont(new java.awt.Font("Raleway", 1, 14)); // NOI18N
-        jButton1.setText("Reporte");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-print-32.png"))); // NOI18N
+        jButton1.setText("Imprimir Reporte");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jButton1.setIconTextGap(8);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -606,19 +609,19 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(panelIssuedBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelIssuedBooksLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addGroup(panelIssuedBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelIssuedBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(scrollPaneIssuedBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelIssuedBooksLayout.createSequentialGroup()
                                 .addComponent(labelcCie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtUsn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSearchByUsn))))
+                                .addComponent(btnSearchByUsn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))))
                     .addGroup(panelIssuedBooksLayout.createSequentialGroup()
                         .addGap(397, 397, 397)
-                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelIssuedBooksLayout.createSequentialGroup()
                         .addGap(388, 388, 388)
                         .addComponent(jLabel5)))
@@ -633,14 +636,13 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(panelIssuedBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelcCie, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUsn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchByUsn))
+                    .addComponent(btnSearchByUsn)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(scrollPaneIssuedBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(panelIssuedBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         mainPanel.add(panelIssuedBooks, "panelIssuedBooks");
@@ -929,7 +931,7 @@ public class Dashboard extends javax.swing.JFrame {
         searchBookBy = (String) ComboBoxSearchBook.getSelectedItem();
     }//GEN-LAST:event_ComboBoxSearchBookActionPerformed
 
-    private void btnSearchBookIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookIssueActionPerformed
+    private void btnSearchBookLeadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookLeadActionPerformed
         if (searchBookBy == null) {
             searchBookBy = "Title";
         }
@@ -961,11 +963,11 @@ public class Dashboard extends javax.swing.JFrame {
         if (bookTable.getModel().getRowCount() == 0) {
             JOptionPane.showMessageDialog(panelIssueBook, "Non se atopou ningún rexistro", "Non se atopou nada", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnSearchBookIssueActionPerformed
+    }//GEN-LAST:event_btnSearchBookLeadActionPerformed
 
-    private void txtUsnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsnSearchActionPerformed
+    private void txtCIESearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCIESearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsnSearchActionPerformed
+    }//GEN-LAST:event_txtCIESearchActionPerformed
 
     private void btnSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookActionPerformed
         CardLayout card = (CardLayout) mainPanel.getLayout();
@@ -1043,8 +1045,8 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnSearchBookIssue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookIssue1ActionPerformed
-        String cie = txtUsnSearch.getText().trim();
+    private void btnSearchCIEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCIEActionPerformed
+        String cie = txtCIESearch.getText().trim();
 
         if (cie.length() != 0) {
             studentTable.setModel(dao.getStudentbyCie(cie));
@@ -1057,20 +1059,20 @@ public class Dashboard extends javax.swing.JFrame {
             AddStudent dialog = new AddStudent(this, true);
             dialog.setLocationRelativeTo(btnAddStudent);
             dialog.setVisible(true);
-            txtUsnSearch.setText(dialog.cie);
+            txtCIESearch.setText(dialog.cie);
         }
 
 
-    }//GEN-LAST:event_btnSearchBookIssue1ActionPerformed
+    }//GEN-LAST:event_btnSearchCIEActionPerformed
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
         AddStudent dialog = new AddStudent(this, true);
         dialog.setLocationRelativeTo(btnAddStudent);
         dialog.setVisible(true);
-        txtUsnSearch.setText(dialog.cie);
+        txtCIESearch.setText(dialog.cie);
     }//GEN-LAST:event_btnAddStudentActionPerformed
 
-    private void btnIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIssueActionPerformed
+    private void btnPrestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestarActionPerformed
         int idxBook = bookTable.getSelectedRow();
         int idxStudent = studentTable.getSelectedRow();
         if (idxBook == -1 || idxStudent == -1) {
@@ -1099,7 +1101,7 @@ public class Dashboard extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(panelIssueBook, "Produciuse algún erro.", "Operación non válida", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnIssueActionPerformed
+    }//GEN-LAST:event_btnPrestarActionPerformed
 
     private void btnSearchByUsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByUsnActionPerformed
         String cie = txtUsn.getText().trim();
@@ -1166,9 +1168,7 @@ public class Dashboard extends javax.swing.JFrame {
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
             JasperViewer.viewReport(jasperPrint, false);
-        } catch (SQLException ex) {
-            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JRException ex) {
+        } catch (SQLException | JRException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1257,17 +1257,17 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnIeadBook;
-    private javax.swing.JButton btnIssue;
     private javax.swing.JButton btnListBooks;
     private javax.swing.JButton btnListLeads;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnPrestar;
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnReturnToday;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearchBook;
-    private javax.swing.JButton btnSearchBookIssue;
-    private javax.swing.JButton btnSearchBookIssue1;
+    private javax.swing.JButton btnSearchBookLead;
     private javax.swing.JButton btnSearchByUsn;
+    private javax.swing.JButton btnSearchCIE;
     private javax.swing.JLabel categoryLabel;
     private javax.swing.JComboBox<String> comboBoxCategory;
     private javax.swing.JComboBox<String> comboBoxSearchBy;
@@ -1302,6 +1302,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTable studentTable;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTextField txtAuthorName;
+    private javax.swing.JTextField txtCIESearch;
     private javax.swing.JTextField txtCategory;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtQuantity;
@@ -1309,6 +1310,5 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearchBook;
     private javax.swing.JTextField txtTitle;
     private javax.swing.JTextField txtUsn;
-    private javax.swing.JTextField txtUsnSearch;
     // End of variables declaration//GEN-END:variables
 }

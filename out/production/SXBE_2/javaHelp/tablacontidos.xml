@@ -2,6 +2,6 @@
 <toc version="1.0">
     <!--  categoryclosedimage="FolderClosed" categoryopenimage="FolderOpened" topicimage="ItemIco"-->
     <tocitem text="manual" target="manual">
-        <tocitem text="uso" target="uso"/>
+        <tocitem text="funcionalidades" target="funcionalidades"/>
     </tocitem>
 </toc>

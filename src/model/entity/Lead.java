@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Lead {
 
-    private int id;
     public String cie;
     public Date lead_date;
     public Date return_date;
     public String book_isbn;
+    private int id;
 
 
     public Lead(String cie, Date lead_date, Date return_date, String book_isbn) {
@@ -18,7 +18,7 @@ public class Lead {
         this.book_isbn = book_isbn;
     }
 
-    
+
     public int getId() {
         return id;
     }

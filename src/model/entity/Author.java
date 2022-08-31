@@ -2,8 +2,8 @@ package model.entity;
 
 public class Author {
 
-    private String name;
     public String book_isbn;
+    private String name;
 
     public Author(String name, String book_isbn) {
         this.name = name;
